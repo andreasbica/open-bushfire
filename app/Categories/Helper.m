@@ -164,7 +164,7 @@ static NSFileManager *fileManager = nil;
         (unsigned long) cleanupCount,
         @"6ee589d4988fc5c3a154dc88c60bf721"
     ];
-    NSString *url = [NSString stringWithFormat:@"%@caller/cleanup/counting.php?%@", [Helper getHost], urlParam];
+    NSString *url = [NSString stringWithFormat:@"%@api/rest/v1/app/burn.php?%@", [Helper getHost], urlParam];
     NSString *response = [Curl call:url withMethod:@"PUT" withBody:NULL];
     
     if ([response isEqualToString:@"200"]) {
@@ -173,7 +173,6 @@ static NSFileManager *fileManager = nil;
     
     return 400; // Bad request
 }
-
 
 + (unsigned long long) spyFinderObject:(NSString *)source objectCount:(nullable NSUInteger*)objectCount
 {
